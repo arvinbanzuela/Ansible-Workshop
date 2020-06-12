@@ -1,0 +1,17 @@
+---
+ - name: Test Playbook
+   hosts: all
+
+   tasks:
+   - name: Ping all nodes
+     ping:
+
+   - name: see whoami
+     shell: "whoami"
+     register: output
+   - name: look output
+     debug:
+       msg: "{{ output.stdout }}"
+ 
+ - name: Install apache to webserver
+   hosts: web
